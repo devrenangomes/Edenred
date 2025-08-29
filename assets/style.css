@@ -29,6 +29,12 @@ body {
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     overflow: hidden;
+    transition: all 0.5s;
+}
+
+.login-container:hover {
+  box-shadow: 0 0 20px rgba(92, 92, 92, 0.858);
+
 }
 
 .form-section {
