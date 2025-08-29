@@ -1,0 +1,229 @@
+/* ---- 1. ESTILOS GERAIS E GLOBAIS ---- */
+/* Regra universal para um layout mais intuitivo */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-image: url(../assets/bg.png); /* Fundo de exemplo */
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+
+/* ---- 2. CONTENTOR PRINCIPAL E COLUNAS ---- */
+.login-container {
+    display: flex;
+    width: 95%; /* Ocupa 95% da tela */
+    max-width: 900px; /* Mas nunca ultrapassa os 900px */
+    min-height: 600px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.form-section {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ---- 3. ESTILOS DO FORMULÁRIO (COLUNA DA ESQUERDA) ---- */
+.login-box {
+    width: 100%;
+    text-align: left;
+}
+
+.logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.login-box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #1c1e21;
+}
+
+.login-box p {
+    color: #606770;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 14px 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.input-group label {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    color: #999;
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+}
+
+.input-field:focus + label,
+.input-field:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 8px;
+    font-size: 12px;
+    color: #c9002e;
+    background-color: white;
+    padding: 0 5px;
+}
+
+.forgot-password {
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 25px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.btn-primary {
+    background-color: #c9002e;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: auto;
+    float: right;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(201, 0, 46, 0.4);
+}
+
+
+/* ---- 4. ESTILOS DO CARROSSEL (COLUNA DA DIREITA) ---- */
+.carousel-section {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: #f5f0ff;
+}
+
+.carousel-slide {
+    aspect-ratio: 900 / 1200;
+    height: 100%;
+    max-width: 100%;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+}
+
+.carousel-slide img.active {
+    opacity: 1;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #c4c4c4;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #c9002e;
+}
+
+
+/* ---- 5. REGRAS DE RESPONSIVIDADE ---- */
+
+/* Para TABLETS */
+@media (max-width: 1024px) {
+    .login-container {
+        min-height: auto;
+        height: auto;
+    }
+
+    .form-section {
+        padding: 30px;
+    }
+}
+
+/* Para TELEMÓVEIS */
+@media (max-width: 768px) {
+    body {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .login-container {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+
+    .carousel-section {
+        min-height: 450px; /* Altura mínima para a imagem em telemóveis */
+        order: 1;
+        padding: 10px;
+    }
+    
+    .form-section {
+        order: 2;
+    }
+    
+    .carousel-slide img {
+        /* Garante que a imagem caiba inteira sem ser cortada no mobile */
+        object-fit: contain; 
+        object-position: center;
+    }
+}

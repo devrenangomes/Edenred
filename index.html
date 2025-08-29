@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Edenred</title>
+    <link rel="stylesheet" href="assets/style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="login-container">
+
+    <!-- Aba de Login -->
+
+        <div class="form-section">
+            <div class="login-box">
+                <img src="assets/logo.png" alt="Logo Edenred" class="logo">
+                <h2>Entrar</h2>
+                <p>Use seu Email, telefone ou Skype.</p>
+                
+                <form action="/dashboard" method="GET">
+                    <div class="input-group">
+                        <input type="text" id="login-identifier" class="input-field" placeholder=" " required>
+                        <label for="login-identifier">Email, telefone ou Skype</label>
+                    </div>
+
+                    <a href="#" class="forgot-password">Não consegue acessar sua conta?</a>
+                    
+                    <button type="submit" class="btn-primary">Avançar</button>
+                </form>
+            </div>
+        </div>
+
+
+    <!-- Aba lateral com Banners -->
+        
+    <div class="carousel-section">
+            <div class="carousel-slide">
+                <img src="assets/banner-1.jpg" alt="Ilustração sobre Diferencial 1" class="active">
+                <img src="assets/banner-2.jpg" alt="Ilustração sobre Diferencial 2">
+                <img src="assets/banner-3.jpg" alt="Ilustração sobre Diferencial 3">
+            </div>
+            <div class="carousel-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <!--JavaScript-->
+
+     <script src="scripts/script.js" defer></script> 
+
+    
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
+  
